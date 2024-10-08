@@ -1,0 +1,1 @@
+Modulos Principais - Média Por Curso, Conceito Por Média e Correlação, elas vão depender de qual modulo o usuário quer, Pandemia, Percepção e Etc
