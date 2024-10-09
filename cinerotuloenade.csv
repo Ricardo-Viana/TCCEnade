@@ -1,0 +1,82 @@
+cod_geral,Área Geral,cod_especifica,Área específica,cod_detalhada,Área detalhada,codigo,Rótulo Cine Brasil,cod_enade_2021,cod_enade_2019,cod_enade_2022
+01,Educação,011,Educação,0113,Formação de professores sem áreas específicas,0113F01,Formação pedagógica de professor para a educação básica,2001,,
+01,Educação,011,Educação,0114,Formação de professores em áreas específicas (exceto Letras),0114A02,Artes visuais formação de professor,2501,,
+01,Educação,011,Educação,0114,Formação de professores em áreas específicas (exceto Letras),0114B01,Biologia formação de professor,1602,,
+01,Educação,011,Educação,0114,Formação de professores em áreas específicas (exceto Letras),0114C03,Ciências sociais formação de professor,5402,,
+01,Educação,011,Educação,0114,Formação de professores em áreas específicas (exceto Letras),0114C05,Computação formação de professor,4005,,
+01,Educação,011,Educação,0114,Formação de professores em áreas específicas (exceto Letras),0114E03,Educação física formação de professor,3502,,
+01,Educação,011,Educação,0114,Formação de professores em áreas específicas (exceto Letras),0114F01,Filosofia formação de professor,3202,,
+01,Educação,011,Educação,0114,Formação de professores em áreas específicas (exceto Letras),0114F02,Física formação de professor,1402,,
+01,Educação,011,Educação,0114,Formação de professores em áreas específicas (exceto Letras),0114G01,Geografia formação de professor,3002,,
+01,Educação,011,Educação,0114,Formação de professores em áreas específicas (exceto Letras),0114H01,História formação de professor,2402,,
+01,Educação,011,Educação,0114,Formação de professores em áreas específicas (exceto Letras),0114M01,Matemática formação de professor,702,,
+01,Educação,011,Educação,0114,Formação de professores em áreas específicas (exceto Letras),0114M02,Música formação de professor,4301,,
+01,Educação,011,Educação,0114,Formação de professores em áreas específicas (exceto Letras),0114Q01,Química formação de professor,1502,,
+01,Educação,011,Educação,0115,Formação de professores de letras,0115L04,Letras inglês formação de professor,6407,,
+01,Educação,011,Educação,0115,Formação de professores de letras,0115L12,Letras português espanhol formação de professor,906,,
+01,Educação,011,Educação,0115,Formação de professores de letras,0115L13,Letras português formação de professor,904,,
+01,Educação,011,Educação,0115,Formação de professores de letras,0115L15,Letras português inglês formação de professor,905,,
+02,Artes e humanidades,021,Artes,0211,"Produção audiovisual, de mídia e cultural",0211D01,Design gráfico,,,104
+02,Artes e humanidades,021,Artes,0212,"Moda, design de interiores e desenho industrial",0212D02,Design,26,,
+02,Artes e humanidades,021,Artes,0212,"Moda, design de interiores e desenho industrial",0212D03,Design de interiores,,,103
+02,Artes e humanidades,021,Artes,0212,"Moda, design de interiores e desenho industrial",0212M01,Moda,,,83
+02,Artes e humanidades,022,Humanidades (exceto línguas),0221,Religião e teologia,0221T01,Teologia,,,101
+02,Artes e humanidades,022,Humanidades (exceto línguas),0222,História e arqueologia,0222H01,História,2401,,
+02,Artes e humanidades,022,Humanidades (exceto línguas),0223,Filosofia e ética,0223F01,Filosofia,3201,,
+03,"Ciências sociais, comunicação e informação",031,Ciências sociais e comportamentais,0312,Ciências sociais e políticas,0312C02,Ciências sociais,5401,,
+03,"Ciências sociais, comunicação e informação",031,Ciências sociais e comportamentais,0312,Ciências sociais e políticas,0312G01,Geografia,3001,,
+03,"Ciências sociais, comunicação e informação",031,Ciências sociais e comportamentais,0312,Ciências sociais e políticas,0312R01,Relações internacionais,,,81
+03,"Ciências sociais, comunicação e informação",031,Ciências sociais e comportamentais,0313,Psicologia,0313P01,Psicologia,,,18
+03,"Ciências sociais, comunicação e informação",032,Comunicação e informação ,0321,Comunicação e reportagem,0321J01,Jornalismo,,,803
+04,"Negócios, administração e direito",041,Negócios e administração,0411,Contabilidade e tributação,0411C01,Contabilidade,,,22
+04,"Negócios, administração e direito",041,Negócios e administração,0412,"Finanças, bancos e seguros",0412G01,Gestão financeira,,,87
+04,"Negócios, administração e direito",041,Negócios e administração,0413,Gestão e administração,0413A01,Administração,,,1
+04,"Negócios, administração e direito",041,Negócios e administração,0413,Gestão e administração,0413A02,Administração pública,,,100
+04,"Negócios, administração e direito",041,Negócios e administração,0413,Gestão e administração,0413C01,Comércio exterior,,,102
+04,"Negócios, administração e direito",041,Negócios e administração,0413,Gestão e administração,0413G02,Gestão da qualidade,,,105
+04,"Negócios, administração e direito",041,Negócios e administração,0413,Gestão e administração,0413G07,Gestão de pessoas,,,86
+04,"Negócios, administração e direito",041,Negócios e administração,0413,Gestão e administração,0413G11,Gestão hospitalar,,91,
+04,"Negócios, administração e direito",041,Negócios e administração,0413,Gestão e administração,0413G12,Gestão pública,,,106
+04,"Negócios, administração e direito",041,Negócios e administração,0413,Gestão e administração,0413L01,Logística,,,94
+04,"Negócios, administração e direito",041,Negócios e administração,0414,Marketing e propaganda,0414M01,Marketing,,,84
+04,"Negócios, administração e direito",041,Negócios e administração,0414,Marketing e propaganda,0414P01,Publicidade e propaganda,,,804
+04,"Negócios, administração e direito",041,Negócios e administração,0415,Secretariado e trabalhos de escritório,0415S01,Secretariado,,,67
+04,"Negócios, administração e direito",041,Negócios e administração,0416,Gestão comercial,0416G01,Gestão comercial,,,93
+04,"Negócios, administração e direito",042,Direito,0421,Direito,0421D01,Direito,,,2
+05,"Ciências naturais, matemática e estatística",051,Ciências biológicas e correlatas,0511,Biologia,0511B01,Biologia,1601,,
+05,"Ciências naturais, matemática e estatística",053,Ciências físicas,0531,Química,0531Q01,Química,1501,,
+06,Computação e Tecnologias da Informação e Comunicação (TIC),061,Computação e Tecnologias da Informação e Comunicação (TIC),0612,Infraestrutura e gestão de TIC,0612G01,Gestão da tecnologia da informação,6409,,
+06,Computação e Tecnologias da Informação e Comunicação (TIC),061,Computação e Tecnologias da Informação e Comunicação (TIC),0612,Infraestrutura e gestão de TIC,0612R01,Redes de computadores,79,,
+06,Computação e Tecnologias da Informação e Comunicação (TIC),061,Computação e Tecnologias da Informação e Comunicação (TIC),0614,Ciência da computação,0614C01,Ciência da computação,4004,,
+06,Computação e Tecnologias da Informação e Comunicação (TIC),061,Computação e Tecnologias da Informação e Comunicação (TIC),0615,Gestão e desenvolvimento de sistemas de informação,0615S02,Sistemas de informação,4006,,
+06,Computação e Tecnologias da Informação e Comunicação (TIC),069,Programas abrangendo Computação e Tecnologias da Informação e Comunicação (TIC) em processo de definição da classificação,0699,Programas abrangendo Computação e Tecnologias da Informação e Comunicação (TIC) em processo de definição da classificação,0699P01,Programas abrangendo Computação e Tecnologias da Informação e Comunicação (TIC) em processo de definição da classificação,72,,
+07,"Engenharia, produção e construção",071,Engenharia e profissões correlatas,0711,Engenharia química e de processos,0711E05,Engenharia química,,6008,
+07,"Engenharia, produção e construção",071,Engenharia e profissões correlatas,0712,Tecnologia de proteção ambiental,0712E01,Engenharia ambiental,,6307,
+07,"Engenharia, produção e construção",071,Engenharia e profissões correlatas,0712,Tecnologia de proteção ambiental,0712G01,Gestão ambiental,,92,
+07,"Engenharia, produção e construção",071,Engenharia e profissões correlatas,0713,Eletricidade e energia,0713E05,Engenharia elétrica,,5806,
+07,"Engenharia, produção e construção",071,Engenharia e profissões correlatas,0714,Eletrônica e automação,0714E04,Engenharia de computação (DCN Engenharia),,4003,
+07,"Engenharia, produção e construção",071,Engenharia e profissões correlatas,0714,Eletrônica e automação,0714E05,Engenharia de controle e automação,,5814,
+07,"Engenharia, produção e construção",072,Produção e processamento,0721,Processamento de alimentos,0721E01,Engenharia de alimentos,,6002,
+07,"Engenharia, produção e construção",072,Produção e processamento,0725,Produção e processos de fabricação,0725E02,Engenharia de produção,,6208,
+07,"Engenharia, produção e construção",073,Arquitetura e construção,0731,Arquitetura e planejamento urbano,0731A02,Arquitetura e urbanismo,,21,
+07,"Engenharia, produção e construção",073,Arquitetura e construção,0732,Engenharia civil e construção,0732E01,Engenharia civil,,5710,
+08,"Agricultura, silvicultura, pesca e veterinária",081,Agricultura,0811,"Produção agrícola, agropecuária e zootecnia",0811A03,Agronegócio,,90,
+08,"Agricultura, silvicultura, pesca e veterinária",081,Agricultura,0811,"Produção agrícola, agropecuária e zootecnia",0811A04,Agronomia,,17,
+08,"Agricultura, silvicultura, pesca e veterinária",081,Agricultura,0811,"Produção agrícola, agropecuária e zootecnia",0811Z01,Zootecnia,,51,
+08,"Agricultura, silvicultura, pesca e veterinária",082,Silvicultura,0821,Silvicultura,0821E01,Engenharia florestal,,6405,
+08,"Agricultura, silvicultura, pesca e veterinária",084,Veterinária,0841,Veterinária,0841M01,Medicina veterinária,,5,
+09,Saúde e bem-estar,091,Saúde,0911,Odontologia,0911O01,Odontologia,,6,
+09,Saúde e bem-estar,091,Saúde,0912,Medicina,0912M01,Medicina,,12,
+09,Saúde e bem-estar,091,Saúde,0913,Enfermagem,0913E01,Enfermagem,,23,
+09,Saúde e bem-estar,091,Saúde,0914,Tecnologia de diagnóstico e tratamento médico,0914B01,Biomedicina,,55,
+09,Saúde e bem-estar,091,Saúde,0914,Tecnologia de diagnóstico e tratamento médico,0914R01,Radiologia,,69,
+09,Saúde e bem-estar,091,Saúde,0915,"Promoção, prevenção, terapia e reabilitação",0915E01,Educação física,3501,,
+09,Saúde e bem-estar,091,Saúde,0915,"Promoção, prevenção, terapia e reabilitação",0915F01,Fisioterapia,,36,
+09,Saúde e bem-estar,091,Saúde,0915,"Promoção, prevenção, terapia e reabilitação",0915F02,Fonoaudiologia,,27,
+09,Saúde e bem-estar,091,Saúde,0915,"Promoção, prevenção, terapia e reabilitação",0915N01,Nutrição,,28,
+09,Saúde e bem-estar,091,Saúde,0916,Farmácia,0916F01,Farmácia,,19,
+09,Saúde e bem-estar,092,Bem-estar,0923,Serviço social,0923S01,Serviço social,,,38
+10,Serviços,101,Serviços pessoais,1012,Serviços de beleza,1012E01,Estética e cosmética,,95,
+10,Serviços,101,Serviços pessoais,1013,Serviços de alimentação,1013G01,Gastronomia,,,88
+10,Serviços,101,Serviços pessoais,1015,Turismo e hotelaria,1015T01,Turismo,,,29
+10,Serviços,102,Higiene e serviços de saúde ocupacional,1022,Saúde e segurança no trabalho,1022S01,Segurança no trabalho,,6410,
