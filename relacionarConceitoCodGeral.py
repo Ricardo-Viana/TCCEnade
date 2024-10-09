@@ -4,7 +4,7 @@ import requests
 from bs4 import BeautifulSoup
 import wget
 
-def relacionarTabelas(ano):
+def relacionarTabelas(tabela_relacionada, ano):
     dir_path = f'./ConceitoEnade'
     if not os.path.exists(dir_path):
         os.makedirs(dir_path)
@@ -30,6 +30,16 @@ def relacionarTabelas(ano):
                 if 'download' in href and (href.endswith('.xlsx') or href.endswith('.xls')):  # Exemplo de filtro
                     wget.download(href, f"ConceitoEnade/ConceitoEnade{ano}.xls")
                     break
+    
+    tabela_conceito_enade = pd.read_excel(f'ConceitoEnade/ConceitoEnade{ano}.xls')
+    tabela_conceito_enade.rename(columns={'Código do Curso': 'CO_CURSO'}, inplace=True)
+    tabela_conceito_enade = tabela_conceito_enade[['CO_CURSO', 'Conceito Enade (Contínuo)']]
+
+    tabela_relacionada = pd.merge(tabela_relacionada, tabela_conceito_enade, on='CO_CURSO', how='left')
+    
+    tabela_relacionada.to_csv('tabela.csv', sep=';')
+
+    return tabela_relacionada 
 
 if __name__ == '__main__':
-    relacionarTabelas(2021)
+    print(relacionarTabelas(pd.read_csv('Metricas_todos_cursos.csv', sep=';', decimal=','),2021))

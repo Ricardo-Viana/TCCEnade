@@ -1,4 +1,5 @@
 from mediaPorCurso import processa_respostas
+from relacionarConceitoCodGeral import relacionarTabelas
 import pandas as pd
 
 def main():
@@ -28,9 +29,17 @@ def main():
     # Exportar o resultado
     metricas.to_csv("Metricas_todos_cursos.csv", index=False, sep=';')
 
-    tabela_relacionada = pd.DataFrame()
+    tabela_relacionada = metricas
 
     # Código para gerar o dataframe que relaciona as tabelas com o Conceito Enade e o cod_geral
     for ano in anos_list:
+        tabela_relacionada = relacionarTabelas(tabela_relacionada, ano)
+        tabela_relacionada = tabela_relacionada[[f'Conceito Enade Adicional {ano}']].bfill(axis=1).iloc[:, 0]
+        tabela_relacionada = tabela_relacionada.drop([f'Conceito Enade Adicional {ano}'])
+
+    tabela_relacionada = tabela_relacionada.applymap(lambda x: str(x).replace('.', ',') if isinstance(x, (float, int)) else x)
+
+    # Exportar o resultado
+    tabela_relacionada.to_csv("tabela_relacionada.csv", index=False, sep=';')
 
 
