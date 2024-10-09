@@ -4,6 +4,8 @@ __pycache__/
 *$py.class
 
 /enade**
+/ConceitoEnade**
+Metricas**
 
 # C extensions
 *.so
