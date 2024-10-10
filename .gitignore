@@ -6,6 +6,7 @@ __pycache__/
 /enade**
 /ConceitoEnade**
 Metricas**
+tabela_relacionada**
 
 # C extensions
 *.so

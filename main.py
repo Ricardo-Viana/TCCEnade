@@ -1,5 +1,6 @@
 from mediaPorCurso import processa_respostas
-from relacionarConceitoCodGeral import relacionarTabelas
+from relacionarConceito import relacionarTabelasConceito
+from relacionarCodGeral import relacionarTabelasCodGeral
 import pandas as pd
 
 def main():
@@ -31,15 +32,33 @@ def main():
 
     tabela_relacionada = metricas
 
+    tabela_relacionada['CO_CURSO'] = tabela_relacionada['CO_CURSO'].astype(int)
+
     # Código para gerar o dataframe que relaciona as tabelas com o Conceito Enade e o cod_geral
     for ano in anos_list:
-        tabela_relacionada = relacionarTabelas(tabela_relacionada, ano)
-        tabela_relacionada = tabela_relacionada[[f'Conceito Enade Adicional {ano}']].bfill(axis=1).iloc[:, 0]
-        tabela_relacionada = tabela_relacionada.drop([f'Conceito Enade Adicional {ano}'])
+        tabela_relacionada = relacionarTabelasConceito(tabela_relacionada, ano)
 
     tabela_relacionada = tabela_relacionada.applymap(lambda x: str(x).replace('.', ',') if isinstance(x, (float, int)) else x)
 
-    # Exportar o resultado
-    tabela_relacionada.to_csv("tabela_relacionada.csv", index=False, sep=';')
+    tabela_relacionada['Conceito Enade (Contínuo)'] = tabela_relacionada[[f'Conceito Enade {ano}' for ano in anos_list]].bfill(axis=1).iloc[:, 0]
 
+    tabela_relacionada.drop(columns=[f'Conceito Enade {ano}' for ano in anos_list], inplace=True)
+
+    # Exportar o resultado
+    tabela_relacionada.to_csv("tabela_relacionada_conceito.csv", index=False, sep=';')
+
+    for ano in anos_list:
+        tabela_relacionada = relacionarTabelasCodGeral(tabela_relacionada, ano)
+
+    tabela_relacionada['cod_geral'] = tabela_relacionada[[f'cod_geral_{ano}' for ano in anos_list]].bfill(axis=1).iloc[:, 0]
+
+    tabela_relacionada = tabela_relacionada.drop(columns=[f'cod_geral_{ano}, cod_enade_{ano}' for ano in anos_list])
+
+    tabela_relacionada = tabela_relacionada.applymap(lambda x: str(x).replace('.', ',') if isinstance(x, (float, int)) else x)
+
+    tabela_relacionada.to_csv("tabela_relacionada_conceito_cod_geral.csv", index=False, sep=';')
+
+
+if __name__ == '__main__':
+    main()
 
