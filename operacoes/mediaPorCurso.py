@@ -39,7 +39,7 @@ def processa_respostas(ano, cod_grupo, valores_na, tipo_questao):
     if tipo_questao == 'pandemia':
         
         if ano >= 2021:
-            files = os.listdir(f'enade{ano}/microdados_Enade_{ano}/2.DADOS')
+            files = os.listdir(f'enade{ano}/microdados_Enade_{ano}_LGPD/2.DADOS')
             files_sorted_by_number = sorted(files, key=lambda x: int(re.search(fr'microdados{ano}_arq(\d+)', x).group(1)))
             latest_file = files_sorted_by_number[-1]    
             df_respostas = pd.read_csv(f'enade{ano}/microdados_Enade_{ano}_LGPD/2.DADOS/{latest_file}', delimiter = ';')
