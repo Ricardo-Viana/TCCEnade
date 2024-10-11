@@ -3,7 +3,7 @@ import pandas as pd
 from operacoes.mediaPorCurso import processa_respostas
 
 
-def modulo_metricas(anos_list):
+def modulo_metricas(anos_list, relacao_ano_grupo):
     metricas = pd.DataFrame()
 
     df_cinerotulo = pd.read_csv('cinerotuloenade.csv')
@@ -13,9 +13,8 @@ def modulo_metricas(anos_list):
 
     tipo_questao = input("Digite qual tipo de questão você quer gerar um relatório (pandemia, percepção prova ou processo formativo): ").lower()
 
-
     for ano in anos_list:
-        df_enade = df_cinerotulo[f'cod_enade_{ano}'].dropna()
+        df_enade = df_cinerotulo[f'cod_enade_{relacao_ano_grupo[ano]}'].dropna() 
         for cod_grupo in df_enade:
             resultado = processa_respostas(ano, cod_grupo, valores_na, tipo_questao)
             metricas = pd.concat([metricas, resultado], ignore_index=True)
