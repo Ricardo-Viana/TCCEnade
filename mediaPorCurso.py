@@ -76,7 +76,7 @@ def processa_respostas(ano, cod_grupo, valores_na, tipo_questao):
         df_respostas_filtered = df_respostas[df_respostas['CO_CURSO'].isin(unique_courses)]
 
         colunas_respostas = [col for col in df_respostas_filtered.columns if col.startswith('QE_')]
-        
+
     df_respostas_filtered[colunas_respostas] = df_respostas_filtered[colunas_respostas].replace(valores_na, np.nan)
 
     df_respostas_filtered = df_respostas_filtered.dropna(how='all', subset=colunas_respostas)

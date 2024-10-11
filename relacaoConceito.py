@@ -38,4 +38,4 @@ def relacionarTabelasConceito(tabela_relacionada, ano):
 
     tabela_relacionada = pd.merge(tabela_relacionada, tabela_conceito_enade, on='CO_CURSO', how='left')
     
-    return tabela_relacionada 
+    return tabela_relacionada
