@@ -2,6 +2,7 @@ from mediaPorCurso import processa_respostas
 from relacaoConceito import relacionarTabelasConceito
 from relacaoCodGeral import relacionarTabelasCodGeral
 from correlacaoConceitoMedia import calcularCorrelacao
+from geracaoGrafico import gerarGrafico
 import pandas as pd
 import numpy as np
 
@@ -68,6 +69,16 @@ def main():
     tabela_correlacao = tabela_correlacao.applymap(lambda x: str(x).replace('.', ',') if isinstance(x, (float, int)) else x)
 
     tabela_correlacao.to_csv("tabelasCriadas/correlação_conceito_enade_média_questão.csv", index=False)
+
+    tabela_correlacao = pd.read_csv("tabelasCriadas/correlação_conceito_enade_média_questão.csv", decimal=',')
+    
+    tabela_conceito = pd.read_csv("tabelasCriadas/tabela_relacionada_conceito_cod_geral.csv", decimal=',')
+
+    top5_correlacoes = tabela_correlacao['Correlação'].abs().nlargest(5).index
+
+    questao_correlacoes = tabela_correlacao.loc[top5_correlacoes, 'Questão'].tolist()
+
+    gerarGrafico(anos_list, tabela_conceito, questao_correlacoes)
 
 def converter_para_tipo_apropriado(valor):
     try:

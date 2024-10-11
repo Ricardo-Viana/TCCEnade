@@ -6,6 +6,7 @@ __pycache__/
 /enade**
 /ConceitoEnade
 /tabelasCriadas
+/figuras
 
 # C extensions
 *.so
