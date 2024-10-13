@@ -1,7 +1,9 @@
 import pandas as pd
 
-def calcularCorrelacao(tabela):
+def calcularCorrelacao(tabela, cod_list):
 
+    if len(cod_list) > 0:
+        tabela = tabela[tabela['cod_geral'].isin(cod_list)]
 
     resultado_correlacao = []
 

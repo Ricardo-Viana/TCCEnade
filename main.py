@@ -39,10 +39,16 @@ def main():
     modulo_relacionar_conceito(anos_list)
 
     modulo_relacionar_codGeral(anos_list, relacao_ano_grupo)
-    
-    modulo_correlacao()
 
-    modulo_gerar_grafico(anos_list)
+    cod_list = []
+
+    if (input("Deseja filtar por cursos específico? (Sim ou Não): ").lower() == 'sim'):
+        cod_input = input("Digite o(s) codigo(s) geral(is) dos curso(s) para analisar (separados por vírgula, ex: 1,2,3): ")
+        cod_list = [int(cod.strip()) for cod in cod_input.split(',')]
+    
+    modulo_correlacao(cod_list)
+
+    modulo_gerar_grafico(anos_list, cod_list)
 
 if __name__ == '__main__':
     main()

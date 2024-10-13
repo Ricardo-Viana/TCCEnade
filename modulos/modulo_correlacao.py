@@ -2,10 +2,10 @@ import pandas as pd
 
 from operacoes.correlacaoConceitoMedia import calcularCorrelacao
 
-def modulo_correlacao():
+def modulo_correlacao(cod_list):
     tabela_correlacao = pd.read_csv("tabelasCriadas/tabela_relacionada_conceito_cod_geral.csv", decimal=',')
 
-    tabela_correlacao = calcularCorrelacao(tabela_correlacao)
+    tabela_correlacao = calcularCorrelacao(tabela_correlacao, cod_list)
 
     tabela_correlacao = tabela_correlacao.applymap(lambda x: str(x).replace('.', ',') if isinstance(x, (float, int)) else x)
 
