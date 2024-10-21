@@ -6,14 +6,30 @@ from modulos.modulo_metricas import modulo_metricas
 
 import pandas as pd
 
+import argparse
+
+parser = argparse.ArgumentParser(description= "Gerar análise do Enade")
+
+parser.add_argument('-a', "--anos", nargs='+', type=int,help='Lista de Anos referentes a análise', required=True)
+parser.add_argument('-v', '--valoresNa', nargs='*', help='Lista de valores para serem desconsiderados da análise (ex: "*", ".")')
+parser.add_argument('-tp', '--tipoQuestao', type=str, help='Tipo de questões para analisar (pandemia, percepção prova ou processo formativo)', required=True)
+parser.add_argument('-c', '--cursosEspecificos', nargs='*', type=int, help='Lista de códigos gerais para filtrar análise')
+
+args = parser.parse_args()
 
 def main():
-    #Arquivo do código enade
 
-    anos_input = input("Digite os anos a serem analisados (separados por vírgula, ex: 2019,2021,2022): ")
-    anos_list = [int(ano.strip()) for ano in anos_input.split(',')]
+    valores_na = []
+    cod_list = []
 
-    if 2020 in anos_list:
+    if args.valoresNa is not None:
+        valores_na = args.valoresNa
+
+    if args.cursosEspecificos is not None:
+        cod_list = args.cursosEspecificos
+
+
+    if 2020 in args.anos:
         raise Exception('2020 não é um ano válido')
 
     GRUPO_ENADE_1 = [2004,2007,2010,2013,2016,2019]
@@ -24,7 +40,7 @@ def main():
 
     relacao_ano_grupo = {}
 
-    for ano in anos_list:
+    for ano in args.anos:
         if ano in GRUPO_ENADE_1:
             relacao_ano_grupo[ano] = "grupo_1"
         elif ano in GRUPO_ENADE_2:
@@ -34,21 +50,15 @@ def main():
         else:
             raise Exception(f"Ano {ano} não foi avaliado no ENADE")
     
-    modulo_metricas(anos_list, relacao_ano_grupo)
+    modulo_metricas(args.anos, valores_na, args.tipoQuestao , relacao_ano_grupo)
 
-    modulo_relacionar_conceito(anos_list)
+    modulo_relacionar_conceito(args.anos)
 
-    modulo_relacionar_codGeral(anos_list, relacao_ano_grupo)
-
-    cod_list = []
-
-    if (input("Deseja filtar por cursos específico? (Sim ou Não): ").lower() == 'sim'):
-        cod_input = input("Digite o(s) codigo(s) geral(is) dos curso(s) para analisar (separados por vírgula, ex: 1,2,3): ")
-        cod_list = [int(cod.strip()) for cod in cod_input.split(',')]
+    modulo_relacionar_codGeral(args.anos, relacao_ano_grupo)
     
     modulo_correlacao(cod_list)
 
-    modulo_gerar_grafico(anos_list, cod_list)
+    modulo_gerar_grafico(args.anos, cod_list)
 
 if __name__ == '__main__':
     main()
