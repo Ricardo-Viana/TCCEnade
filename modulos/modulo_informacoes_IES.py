@@ -6,9 +6,11 @@ import matplotlib.pyplot as plt
 def modulo_informacoes_IES():
     tabela_informacoes_IES = pd.read_csv('tabelasCriadas/tabela_relacionada_conceito_cod_geral.csv', decimal=',')
         
-    calcularTesteAnova(tabela_informacoes_IES, [2019])
+    tabela_informacoes_IES = calcularTesteAnova(tabela_informacoes_IES, [2019])
 
-    return
+    tabela_informacoes_IES = tabela_informacoes_IES.applymap(lambda x: str(x).replace('.', ',') if isinstance(x, (float, int)) else x)
+
+    tabela_informacoes_IES.to_csv("tabelasCriadas/teste_ANOVA_IES.csv", index=False)
 
 
 
@@ -28,7 +30,7 @@ def calcularTesteAnova(tabela, anos_list):
 
     tabela = tabela.dropna(subset=['Conceito Enade (Contínuo)'])
     
-    resultado_categoria_administrativa_f,resultado_categoria_administrativa_p = stats.f_oneway(
+    resultado_categoria_administrativa_f, resultado_categoria_administrativa_p = stats.f_oneway(
         tabela['Conceito Enade (Contínuo)'][tabela['CO_CATEGAD'] == 'Pública Federal'],
         tabela['Conceito Enade (Contínuo)'][tabela['CO_CATEGAD'] == 'Pública Estadual'],
         tabela['Conceito Enade (Contínuo)'][tabela['CO_CATEGAD'] == 'Pública Municipal'],
@@ -58,20 +60,33 @@ def calcularTesteAnova(tabela, anos_list):
         tabela['Conceito Enade (Contínuo)'][tabela['CO_REGIAO_CURSO'] == 'Região Centro-Oeste']
     )
     
-    tabela_informacoes_IES = pd.DataFrame()
-
-    tabela_informacoes_IES['categoria_administrativa_f'] = resultado_categoria_administrativa_f
-    tabela_informacoes_IES['categoria_administrativa_p'] = resultado_categoria_administrativa_f
-    tabela_informacoes_IES['organizacao_academica_f'] = resultado_organizacao_academica_f
-    tabela_informacoes_IES['organizacao_academica_p'] = resultado_organizacao_academica_p
-    tabela_informacoes_IES['modalidade_ensino_f'] = resultado_modalidade_ensino_f
-    tabela_informacoes_IES['modalidade_ensino_p'] = resultado_modalidade_ensino_p
-    tabela_informacoes_IES['resultado_regiao_curso_f'] = resultado_regiao_curso_f
-    tabela_informacoes_IES['resultado_regiao_curso_p'] = resultado_regiao_curso_p
+    tabela_informacoes_IES = pd.DataFrame({
+    'anos': [anos_list],
+    'categoria_administrativa_f': [resultado_categoria_administrativa_f],
+    'categoria_administrativa_p': [resultado_categoria_administrativa_p],
+    'organizacao_academica_f': [resultado_organizacao_academica_f],
+    'organizacao_academica_p': [resultado_organizacao_academica_p],
+    'modalidade_ensino_f': [resultado_modalidade_ensino_f],
+    'modalidade_ensino_p': [resultado_modalidade_ensino_p],
+    'resultado_regiao_curso_f': [resultado_regiao_curso_f],
+    'resultado_regiao_curso_p': [resultado_regiao_curso_p]
+})
 
     sns.boxplot(data=tabela, x="Conceito Enade (Contínuo)", y="CO_CATEGAD")
-
     plt.savefig(f"figuras/{anos_list}_CO_CATEGAD.png", format='png')
+    plt.close()
+
+    sns.boxplot(data=tabela, x="Conceito Enade (Contínuo)", y="CO_ORGACAD")
+    plt.savefig(f"figuras/{anos_list}_CO_ORGACAD.png", format='png')
+    plt.close()
+
+    sns.boxplot(data=tabela, x="Conceito Enade (Contínuo)", y="CO_MODALIDADE")
+    plt.savefig(f"figuras/{anos_list}_CO_MODALIDADE.png", format='png')
+    plt.close()
+
+    sns.boxplot(data=tabela, x="Conceito Enade (Contínuo)", y="CO_REGIAO_CURSO")
+    plt.savefig(f"figuras/{anos_list}_CO_REGIAO_CURSO.png", format='png')
+    plt.close()
 
     return tabela_informacoes_IES
 
