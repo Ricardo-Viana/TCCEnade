@@ -1,12 +1,11 @@
-from modulos.modulo_relacionar_codGeral import modulo_relacionar_codGeral
-from modulos.modulo_relacionar_conceito import modulo_relacionar_conceito
+import argparse
+
 from modulos.modulo_correlacao import modulo_correlacao
 from modulos.modulo_gerar_grafico import modulo_gerar_grafico
+from modulos.modulo_informacoes_IES import modulo_informacoes_IES
 from modulos.modulo_metricas import modulo_metricas
-
-import pandas as pd
-
-import argparse
+from modulos.modulo_relacionar_codGeral import modulo_relacionar_codGeral
+from modulos.modulo_relacionar_conceito import modulo_relacionar_conceito
 
 parser = argparse.ArgumentParser(description= "Gerar análise do Enade")
 
@@ -59,6 +58,8 @@ def main():
     modulo_correlacao(cod_list)
 
     modulo_gerar_grafico(args.anos, cod_list)
+
+    modulo_informacoes_IES(args.anos)
 
 if __name__ == '__main__':
     main()
