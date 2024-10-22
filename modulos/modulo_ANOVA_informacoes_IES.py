@@ -2,7 +2,7 @@ import pandas as pd
 
 from operacoes.testeAnovaIES import calcularTesteAnova
 
-def modulo_informacoes_IES(anos_list):
+def modulo_ANOVA_informacoes_IES(anos_list):
     tabela_informacoes_IES = pd.read_csv('tabelasCriadas/tabela_relacionada_conceito_cod_geral.csv', decimal=',')
         
     tabela_informacoes_IES = calcularTesteAnova(tabela_informacoes_IES, anos_list)

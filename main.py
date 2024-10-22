@@ -2,7 +2,8 @@ import argparse
 
 from modulos.modulo_correlacao import modulo_correlacao
 from modulos.modulo_gerar_grafico import modulo_gerar_grafico
-from modulos.modulo_informacoes_IES import modulo_informacoes_IES
+from modulos.modulo_ANOVA_informacoes_IES import modulo_ANOVA_informacoes_IES
+from modulos.modulo_intervalo_confianca import modulo_intervalo_confianca
 from modulos.modulo_metricas import modulo_metricas
 from modulos.modulo_relacionar_codGeral import modulo_relacionar_codGeral
 from modulos.modulo_relacionar_conceito import modulo_relacionar_conceito
@@ -59,7 +60,9 @@ def main():
 
     modulo_gerar_grafico(args.anos, cod_list)
 
-    modulo_informacoes_IES(args.anos)
+    modulo_ANOVA_informacoes_IES(args.anos)
+
+    modulo_intervalo_confianca()
 
 if __name__ == '__main__':
     main()
