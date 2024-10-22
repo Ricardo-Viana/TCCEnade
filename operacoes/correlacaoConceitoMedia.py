@@ -7,7 +7,7 @@ def calcularCorrelacao(tabela, cod_list):
 
     resultado_correlacao = []
 
-    colunas_para_remover = ["CO_CURSO","CO_GRUPO", "cod_geral"]
+    colunas_para_remover = ["CO_CURSO", "CO_GRUPO", "cod_geral", 'CO_CATEGAD', 'CO_ORGACAD', 'CO_MODALIDADE', 'CO_REGIAO_CURSO']
 
     conceito_enade = 'Conceito Enade (Contínuo)'
 

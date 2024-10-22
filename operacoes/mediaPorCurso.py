@@ -85,4 +85,8 @@ def processa_respostas(ano, cod_grupo, valores_na, tipo_questao):
 
     media_respostas['CO_GRUPO'] = cod_grupo
 
+    filtered_df = filtered_df[['CO_CURSO', 'CO_GRUPO','CO_CATEGAD', 'CO_ORGACAD', 'CO_MODALIDADE', 'CO_REGIAO_CURSO']]
+
+    media_respostas = media_respostas.merge(filtered_df, on=['CO_CURSO', 'CO_GRUPO'], how='left').drop_duplicates(subset=['CO_CURSO', 'CO_GRUPO'])
+
     return media_respostas
