@@ -24,7 +24,8 @@ def intervaloConfiancaMediaEnade(tabela, anos_list):
         
         media_nota_geral = pd.concat([media_nota_geral, grouped], ignore_index=True)
 
-    media_nota_geral = media_nota_geral.groupby('CO_GRUPO').agg({
+    #Educação Física Bacharelado está em dois anos de ENADE diferentes
+    media_nota_geral = media_nota_geral.groupby('CO_GRUPO').agg({ 
     'Média': 'mean',
     'Erro Padrão da Média': 'mean'
     }).reset_index()
