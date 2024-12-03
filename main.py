@@ -62,7 +62,7 @@ def main():
 
     modulo_ANOVA_informacoes_IES(args.anos)
 
-    modulo_intervalo_confianca()
+    modulo_intervalo_confianca(args.anos)
 
 if __name__ == '__main__':
     main()
