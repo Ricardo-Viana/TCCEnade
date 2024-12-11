@@ -3,7 +3,7 @@ import pandas as pd
 from operacoes.mediaPorCurso import processa_respostas
 
 
-def modulo_metricas(anos_list, valores_na, tipo_questao, relacao_ano_grupo):
+def modulo_metricas(anos_list, cod_list, valores_na, tipo_questao, relacao_ano_grupo):
     metricas = pd.DataFrame()
 
     df_cinerotulo = pd.read_csv('cinerotuloenade.csv')
@@ -18,7 +18,7 @@ def modulo_metricas(anos_list, valores_na, tipo_questao, relacao_ano_grupo):
 
     metricas = metricas.applymap(lambda x: str(x).replace('.', ',') if isinstance(x, (float, int)) else x)
 
-    metricas.to_csv("tabelasCriadas/metricas_todos_cursos.csv", index=False)
+    metricas.to_csv(f"tabelasCriadas/{anos_list}{cod_list}metricas_todos_cursos.csv", index=False)
 
 
 def converter_para_tipo_apropriado(valor):

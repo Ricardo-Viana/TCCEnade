@@ -12,7 +12,7 @@ def calcularRegressaoLinear(tabela, anos_list):
     preditores = [col for col in tabela.columns if col.startswith('QE_I')]
     resultado = 'Conceito Enade (Contínuo)'
 
-    tabela = tabela.dropna(subset=[resultado])
+    tabela = tabela.dropna(subset=[resultado]) # Tirar conceito enade que tinham valores nulos
     
     for questao in preditores:
         tabela = tabela.dropna(subset=[questao]) # Tirar as questões que tinham valores nulos
@@ -24,7 +24,7 @@ def calcularRegressaoLinear(tabela, anos_list):
     resultado = regressaoLinearStModel(tabela, preditores, resultado)
     print(resultado.summary())
 
-    return tabela_regressao_linear
+    return
 
 
 def regressaoLinearSkLearn(tabela, preditores, resultado, anos_list):
@@ -60,8 +60,3 @@ def regressaoLinearStModel(tabela, preditores, resultado):
     resultado = modelo.fit()
 
     return resultado
-
-if __name__ == '__main__':
-    tabela_regressao_linear = pd.read_csv('tabelasCriadas/tabela_relacionada_conceito_cod_geral.csv', decimal=',')
-
-    calcularRegressaoLinear(tabela_regressao_linear, 2019)

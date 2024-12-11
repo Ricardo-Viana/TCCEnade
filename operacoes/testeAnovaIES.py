@@ -3,7 +3,7 @@ import scipy.stats as stats
 import seaborn as sns
 import matplotlib.pyplot as plt
 
-def calcularTesteAnova(tabela, anos_list):
+def calcularTesteAnova(tabela, anos_list, cod_list):
 
     tabela['CO_CATEGAD'] = tabela["CO_CATEGAD"].replace({1: 'Pública Federal', 2: 'Pública Estadual', 3: 'Pública Municipal', 
                                                          4: 'Privada com fins lucrativos', 5: 'Privada sem fins lucrativos', 7: 'Especial'})
@@ -62,19 +62,19 @@ def calcularTesteAnova(tabela, anos_list):
 })
 
     sns.boxplot(data=tabela, x="Conceito Enade (Contínuo)", y="CO_CATEGAD")
-    plt.savefig(f"figuras/{anos_list}_CO_CATEGAD.png", format='png')
+    plt.savefig(f"figuras/{anos_list}{cod_list}_CO_CATEGAD.png", format='png')
     plt.close()
 
     sns.boxplot(data=tabela, x="Conceito Enade (Contínuo)", y="CO_ORGACAD")
-    plt.savefig(f"figuras/{anos_list}_CO_ORGACAD.png", format='png')
+    plt.savefig(f"figuras/{anos_list}{cod_list}_CO_ORGACAD.png", format='png')
     plt.close()
 
     sns.boxplot(data=tabela, x="Conceito Enade (Contínuo)", y="CO_MODALIDADE")
-    plt.savefig(f"figuras/{anos_list}_CO_MODALIDADE.png", format='png')
+    plt.savefig(f"figuras/{anos_list}{cod_list}_CO_MODALIDADE.png", format='png')
     plt.close()
 
     sns.boxplot(data=tabela, x="Conceito Enade (Contínuo)", y="CO_REGIAO_CURSO")
-    plt.savefig(f"figuras/{anos_list}_CO_REGIAO_CURSO.png", format='png')
+    plt.savefig(f"figuras/{anos_list}{cod_list}_CO_REGIAO_CURSO.png", format='png')
     plt.close()
 
     return tabela_informacoes_IES

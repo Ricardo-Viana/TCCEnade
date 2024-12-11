@@ -51,21 +51,21 @@ def main():
         else:
             raise Exception(f"Ano {ano} não foi avaliado no ENADE")
     
-    modulo_metricas(args.anos, valores_na, args.tipoQuestao , relacao_ano_grupo)
+    modulo_metricas(args.anos, cod_list, valores_na, args.tipoQuestao , relacao_ano_grupo)
 
-    modulo_relacionar_conceito(args.anos)
+    modulo_relacionar_conceito(args.anos, cod_list)
 
-    modulo_relacionar_codGeral(args.anos, relacao_ano_grupo)
+    modulo_relacionar_codGeral(args.anos, relacao_ano_grupo, cod_list)
     
-    modulo_correlacao(cod_list)
+    modulo_correlacao(args.anos, cod_list)
 
     modulo_gerar_grafico(args.anos, cod_list)
 
-    modulo_ANOVA_informacoes_IES(args.anos)
+    modulo_ANOVA_informacoes_IES(args.anos, cod_list)
 
-    modulo_intervalo_confianca(args.anos)
+    modulo_intervalo_confianca(args.anos, cod_list)
 
-    modulo_regressao_linear(args.anos)
+    modulo_regressao_linear(args.anos, cod_list)
 
 if __name__ == '__main__':
     main()

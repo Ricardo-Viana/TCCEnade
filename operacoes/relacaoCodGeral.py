@@ -1,6 +1,6 @@
 import pandas as pd
 
-def relacionarTabelasCodGeral(tabela_relacionada, ano_grupo):#Grupo de ano
+def relacionarTabelasCodGeral(tabela_relacionada, ano_grupo):
     cine_rotulo = pd.read_csv('cinerotuloenade.csv')
     
     tabela_combinada = pd.merge(
