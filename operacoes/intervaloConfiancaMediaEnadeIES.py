@@ -3,7 +3,7 @@ import scipy.stats as st
 import numpy as np
 import matplotlib.pyplot as plt
 
-from mapeamentosIES import mapeamento_valores
+from operacoes.mapeamentosIES import mapeamento_valores
 
 def intervaloConfiancaMediaEnadeIES(tabela, anos_list, cod_list):
     tabela = mapeamento_valores(tabela)
@@ -15,6 +15,7 @@ def intervaloConfiancaMediaEnadeIES(tabela, anos_list, cod_list):
     for ies in colunas_ies:
         intervaloConfiancaPorIES(tabela, ies, anos_list, cod_list)
 
+    return
 
 def intervaloConfiancaPorIES(tabela, ies, anos_list, cod_list):
     lista_ies_valores = tabela[ies].unique()
@@ -57,7 +58,7 @@ def intervaloConfiancaPorIES(tabela, ies, anos_list, cod_list):
     plt.close()
 
     intervalo_confianca.applymap(lambda x: str(x).replace('.', ',') if isinstance(x, (float, int)) else x)
-    intervalo_confianca.to_csv(f"tabelasCriadas/{anos_list}{cod_list}intervalo_Confianca_Enade_{ies}.csv", index=False)
+    intervalo_confianca.to_csv(f"tabelasCriadas/{anos_list}{cod_list}_intervalo_Confianca_Enade_{ies}.csv", index=False)
 
     return
 

@@ -7,7 +7,7 @@ from sklearn.linear_model import LinearRegression
 from sklearn.metrics import mean_squared_error, r2_score
 from sklearn.feature_selection import RFE
 
-def calcularRegressaoLinear(tabela, anos_list):
+def calcularRegressaoLinear(tabela, anos_list, cod_list):
 
     preditores = [col for col in tabela.columns if col.startswith('QE_I')]
     resultado = 'Conceito Enade (Contínuo)'
@@ -17,7 +17,7 @@ def calcularRegressaoLinear(tabela, anos_list):
     for questao in preditores:
         tabela = tabela.dropna(subset=[questao]) # Tirar as questões que tinham valores nulos
     
-    RMSE, r2 = regressaoLinearSkLearn(tabela, preditores, resultado, anos_list)
+    RMSE, r2 = regressaoLinearSkLearn(tabela, preditores, resultado, anos_list, cod_list)
     print(f'Root Mean Square Error (RMSE): {RMSE:.0f}')
     print(f'Coeficiente de determinação (r2): {r2:.4f}')
 
@@ -27,7 +27,7 @@ def calcularRegressaoLinear(tabela, anos_list):
     return
 
 
-def regressaoLinearSkLearn(tabela, preditores, resultado, anos_list):
+def regressaoLinearSkLearn(tabela, preditores, resultado, anos_list, cod_list):
     questoes_lm = LinearRegression()
     questoes_lm.fit(tabela[preditores], tabela[resultado])
 
@@ -49,7 +49,7 @@ def regressaoLinearSkLearn(tabela, preditores, resultado, anos_list):
     plt.ylim([0, 0.4])
     plt.xlim([0, 41])
     plt.title("Regressão Linear")
-    plt.savefig(f"figuras/{anos_list}_regressao_rfe.png", format='png')
+    plt.savefig(f"figuras/{anos_list}{cod_list}_regressao_rfe.png", format='png')
     plt.close()
 
     return RMSE, r2

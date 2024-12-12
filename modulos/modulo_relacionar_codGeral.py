@@ -16,8 +16,6 @@ def modulo_relacionar_codGeral(anos_list, relacao_ano_grupo, cod_list):
     print(tabela_relacionada['cod_geral'].unique())
 
     if len(cod_list) > 0:
-        for i in range(len(cod_list)):
-            cod_list[i] = float(cod_list[i])
         tabela_relacionada = tabela_relacionada[tabela_relacionada['cod_geral'].isin(cod_list)]
 
     tabela_relacionada = tabela_relacionada.applymap(lambda x: str(x).replace('.', ',') if isinstance(x, (float, int)) else x)
