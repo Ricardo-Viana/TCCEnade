@@ -8,6 +8,7 @@ from modulos.modulo_metricas import modulo_metricas
 from modulos.modulo_relacionar_codGeral import modulo_relacionar_codGeral
 from modulos.modulo_relacionar_conceito import modulo_relacionar_conceito
 from modulos.modulo_regressao_linear import modulo_regressao_linear
+from modulos.modulo_intervalo_confianca_IES import modulo_intervalo_confianca_IES
 
 parser = argparse.ArgumentParser(description= "Gerar análise do Enade")
 
@@ -64,6 +65,8 @@ def main():
     modulo_ANOVA_informacoes_IES(args.anos, cod_list)
 
     modulo_intervalo_confianca(args.anos, cod_list)
+
+    modulo_intervalo_confianca_IES(args.anos, cod_list)
 
     modulo_regressao_linear(args.anos, cod_list)
 
