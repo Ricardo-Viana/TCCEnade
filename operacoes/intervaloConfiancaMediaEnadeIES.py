@@ -61,7 +61,3 @@ def intervaloConfiancaPorIES(tabela, ies, anos_list, cod_list):
     intervalo_confianca.to_csv(f"tabelasCriadas/{anos_list}{cod_list}_intervalo_Confianca_Enade_{ies}.csv", index=False)
 
     return
-
-
-if __name__ == '__main__':
-    intervaloConfiancaMediaEnadeIES(pd.read_csv('tabelasCriadas/[2019, 2021, 2022][]tabela_relacionada_conceito_cod_geral.csv', decimal=','), [2019,2021,2022], [])
