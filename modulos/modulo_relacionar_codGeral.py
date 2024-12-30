@@ -2,7 +2,6 @@ import pandas as pd
 
 from operacoes.relacaoCodGeral import relacionarTabelasCodGeral
 
-
 def modulo_relacionar_codGeral(anos_list, relacao_ano_grupo, cod_list):
     tabela_relacionada = pd.read_csv(f"tabelasCriadas/{anos_list}{cod_list}tabela_relacionada_conceito.csv", decimal=',')
 
@@ -13,7 +12,7 @@ def modulo_relacionar_codGeral(anos_list, relacao_ano_grupo, cod_list):
 
     tabela_relacionada = tabela_relacionada.drop(columns=[f'cod_geral_{relacao_ano_grupo[ano]}' for ano in anos_list])
 
-    print(tabela_relacionada['cod_geral'].unique())
+    tabela_relacionada = tabela_relacionada.drop(columns=[f'cod_enade_{relacao_ano_grupo[ano]}' for ano in anos_list])
 
     if len(cod_list) > 0:
         tabela_relacionada = tabela_relacionada[tabela_relacionada['cod_geral'].isin(cod_list)]
