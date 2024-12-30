@@ -1,4 +1,5 @@
 import argparse
+import os
 
 from modulos.modulo_correlacao import modulo_correlacao
 from modulos.modulo_gerar_grafico import modulo_gerar_grafico
@@ -51,6 +52,15 @@ def main():
             relacao_ano_grupo[ano] = "grupo_3"        
         else:
             raise Exception(f"Ano {ano} não foi avaliado no ENADE")
+        
+    dir_path_tabelas = f'./tabelasCriadas'
+    dir_path_figuras = f'./figuras'
+    
+    if not os.path.exists(dir_path_tabelas):
+        os.makedirs(dir_path_tabelas)
+    
+    if not os.path.exists(dir_path_figuras):
+        os.makedirs(dir_path_figuras)
     
     modulo_metricas(args.anos, cod_list, valores_na, args.tipoQuestao , relacao_ano_grupo)
 
