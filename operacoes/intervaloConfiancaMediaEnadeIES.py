@@ -43,7 +43,7 @@ def intervaloConfiancaPorIES(tabela, ies, anos_list, cod_list):
         medias.append(media)
         erros.append(erro)
 
-    plt.figure(figsize=(8, 6))
+    plt.figure(figsize=(12,6))
     y = np.arange(len(categorias_labels))
     plt.errorbar(medias, y, xerr=erros, fmt='none', ecolor='black', capsize=7, elinewidth=2, linewidth=5)
 

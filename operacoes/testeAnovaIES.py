@@ -51,19 +51,23 @@ def calcularTesteAnova(tabela, anos_list, cod_list):
     'resultado_regiao_curso_f': [resultado_regiao_curso_f],
     'resultado_regiao_curso_p': [resultado_regiao_curso_p]
 })
-
+    
+    plt.figure(figsize=(12, 6))
     sns.boxplot(data=tabela, x="Conceito Enade (Contínuo)", y="CO_CATEGAD")
     plt.savefig(f"figuras/{anos_list}{cod_list}_CO_CATEGAD.png", format='png')
     plt.close()
 
+    plt.figure(figsize=(12, 6))
     sns.boxplot(data=tabela, x="Conceito Enade (Contínuo)", y="CO_ORGACAD")
     plt.savefig(f"figuras/{anos_list}{cod_list}_CO_ORGACAD.png", format='png')
     plt.close()
 
+    plt.figure(figsize=(12, 6))
     sns.boxplot(data=tabela, x="Conceito Enade (Contínuo)", y="CO_MODALIDADE")
     plt.savefig(f"figuras/{anos_list}{cod_list}_CO_MODALIDADE.png", format='png')
     plt.close()
 
+    plt.figure(figsize=(12, 6))
     sns.boxplot(data=tabela, x="Conceito Enade (Contínuo)", y="CO_REGIAO_CURSO")
     plt.savefig(f"figuras/{anos_list}{cod_list}_CO_REGIAO_CURSO.png", format='png')
     plt.close()
