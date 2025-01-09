@@ -14,16 +14,16 @@ def calcularTesteAnova(tabela, anos_list, cod_list):
         tabela['Conceito Enade (Contínuo)'][tabela['CO_CATEGAD'] == 'Pública Federal'],
         tabela['Conceito Enade (Contínuo)'][tabela['CO_CATEGAD'] == 'Pública Estadual'],
         tabela['Conceito Enade (Contínuo)'][tabela['CO_CATEGAD'] == 'Pública Municipal'],
-        tabela['Conceito Enade (Contínuo)'][tabela['CO_CATEGAD'] == 'Privada com fins lucrativos'],
-        tabela['Conceito Enade (Contínuo)'][tabela['CO_CATEGAD'] == 'Privada sem fins lucrativos'],
+        tabela['Conceito Enade (Contínuo)'][tabela['CO_CATEGAD'] == 'Privada CFL'],
+        tabela['Conceito Enade (Contínuo)'][tabela['CO_CATEGAD'] == 'Privada SFL'],
         tabela['Conceito Enade (Contínuo)'][tabela['CO_CATEGAD'] == 'Especial']
     )
 
     resultado_organizacao_academica_f,resultado_organizacao_academica_p  = stats.f_oneway(
-        tabela['Conceito Enade (Contínuo)'][tabela['CO_ORGACAD'] == 'Centro Federal de Educação Tecnológica'],
-        tabela['Conceito Enade (Contínuo)'][tabela['CO_ORGACAD'] == 'Centro Universitário'],
+        tabela['Conceito Enade (Contínuo)'][tabela['CO_ORGACAD'] == 'CFET'],
+        tabela['Conceito Enade (Contínuo)'][tabela['CO_ORGACAD'] == 'C. Universitário'],
         tabela['Conceito Enade (Contínuo)'][tabela['CO_ORGACAD'] == 'Faculdade'],
-        tabela['Conceito Enade (Contínuo)'][tabela['CO_ORGACAD'] == 'Instituto Federal de Educação, Ciência e Tecnologia'],
+        tabela['Conceito Enade (Contínuo)'][tabela['CO_ORGACAD'] == 'IFECT'],
         tabela['Conceito Enade (Contínuo)'][tabela['CO_ORGACAD'] == 'Universidade']
     )
 
@@ -33,11 +33,11 @@ def calcularTesteAnova(tabela, anos_list, cod_list):
     )
 
     resultado_regiao_curso_f, resultado_regiao_curso_p  = stats.f_oneway(
-        tabela['Conceito Enade (Contínuo)'][tabela['CO_REGIAO_CURSO'] == 'Região Norte'],
-        tabela['Conceito Enade (Contínuo)'][tabela['CO_REGIAO_CURSO'] == 'Região Nordeste'],
-        tabela['Conceito Enade (Contínuo)'][tabela['CO_REGIAO_CURSO'] == 'Região Sudeste'],
-        tabela['Conceito Enade (Contínuo)'][tabela['CO_REGIAO_CURSO'] == 'Região Sul'],
-        tabela['Conceito Enade (Contínuo)'][tabela['CO_REGIAO_CURSO'] == 'Região Centro-Oeste']
+        tabela['Conceito Enade (Contínuo)'][tabela['CO_REGIAO_CURSO'] == 'Norte'],
+        tabela['Conceito Enade (Contínuo)'][tabela['CO_REGIAO_CURSO'] == 'Nordeste'],
+        tabela['Conceito Enade (Contínuo)'][tabela['CO_REGIAO_CURSO'] == 'Sudeste'],
+        tabela['Conceito Enade (Contínuo)'][tabela['CO_REGIAO_CURSO'] == 'Sul'],
+        tabela['Conceito Enade (Contínuo)'][tabela['CO_REGIAO_CURSO'] == 'Centro-Oeste']
     )
     
     tabela_informacoes_IES = pd.DataFrame({
