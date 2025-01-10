@@ -3,9 +3,13 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 
+from operacoes.mapeamentosCursos import mapeamento_valores
+
 def intervaloConfiancaMediaEnade(tabela, anos_list, cod_list):
     nota_geral = 'NT_GER'
     presenca_prova = 'TP_PR_GER'
+
+    tabela = mapeamento_valores(tabela)
 
     grupos_list = tabela['CO_GRUPO'].unique()
 
