@@ -22,9 +22,11 @@ def calcularRegressaoLinear(tabela, anos_list, cod_list):
     print(f'Coeficiente de determinação (r2): {r2:.4f}')
 
     resultado = regressaoLinearStModel(tabela, preditores, resultado)
-    print(resultado.summary())
+    
+    tabela_resultado = resultado.summary2().tables[1]
+    df_resultado = tabela_resultado.reset_index()
 
-    return
+    return df_resultado
 
 
 def regressaoLinearSkLearn(tabela, preditores, resultado, anos_list, cod_list):
@@ -41,7 +43,6 @@ def regressaoLinearSkLearn(tabela, preditores, resultado, anos_list, cod_list):
         selector = RFE(questoes_lm, n_features_to_select=n_features, step=1)
         selector = selector.fit(tabela[preditores], tabela[resultado])
         scores.append(selector.score(tabela[preditores], tabela[resultado]))
-        
 
     plt.plot(n_features_lst, scores, color='red')
     plt.xlabel("N features")
