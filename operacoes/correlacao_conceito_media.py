@@ -1,6 +1,6 @@
 import pandas as pd
 
-def calcularCorrelacao(tabela):
+def calcular_correlacao(tabela):
 
     resultado_correlacao = []
 

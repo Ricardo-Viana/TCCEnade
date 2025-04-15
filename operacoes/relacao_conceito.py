@@ -4,11 +4,11 @@ import requests
 from bs4 import BeautifulSoup
 import wget
 
-def relacionarTabelasConceito(tabela_relacionada, ano):
-    dir_path = f'./conceitoEnade'
+def relacionar_tabelas_conceito(tabela_relacionada, ano):
+    dir_path = f'./conceito_enade'
     if not os.path.exists(dir_path):
         os.makedirs(dir_path)
-    if not os.path.exists(f"conceitoEnade/ConceitoEnade{ano}.xls"):
+    if not os.path.exists(f"conceito_enade/ConceitoEnade{ano}.xls"):
         # URL da página web que contém os links de download
         url = f'https://www.gov.br/inep/pt-br/acesso-a-informacao/dados-abertos/indicadores-educacionais/indicadores-de-qualidade-da-educacao-superior/{ano}' # Link fixo só muda o último componente que depende do ano
 
@@ -28,10 +28,10 @@ def relacionarTabelasConceito(tabela_relacionada, ano):
                 href = link['href']
                 # Filtrar os links que contenham a palavra "download" ou outro critério desejado
                 if 'download' in href and (href.endswith('.xlsx') or href.endswith('.xls')):  # Exemplo de filtro
-                    wget.download(href, f"conceitoEnade/ConceitoEnade{ano}.xls")
+                    wget.download(href, f"conceito_enade/ConceitoEnade{ano}.xls")
                     break
     
-    tabela_conceito_enade = pd.read_excel(f'conceitoEnade/ConceitoEnade{ano}.xls')
+    tabela_conceito_enade = pd.read_excel(f'conceito_enade/ConceitoEnade{ano}.xls')
     tabela_conceito_enade.rename(columns={'Código do Curso': 'CO_CURSO'}, inplace=True)
     
     tabela_conceito_enade = tabela_conceito_enade[['CO_CURSO', 'Conceito Enade (Contínuo)']].rename(columns={'Conceito Enade (Contínuo)': f'Conceito Enade {ano}'})

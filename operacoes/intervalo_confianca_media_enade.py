@@ -3,9 +3,9 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 
-from operacoes.mapeamentosCursos import mapeamento_valores
+from operacoes.mapeamentos_cursos import mapeamento_valores
 
-def intervaloConfiancaMediaEnade(tabela, anos_list, cod_list):
+def intervalo_confianca_media_enade(tabela, anos_list, cod_list):
     nota_geral = 'NT_GER'
     presenca_prova = 'TP_PR_GER'
 

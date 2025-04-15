@@ -2,9 +2,9 @@ import pandas as pd
 import scipy.stats as stats
 import seaborn as sns
 import matplotlib.pyplot as plt
-from operacoes.mapeamentosIES import mapeamento_valores
+from operacoes.mapeamentos_IES import mapeamento_valores
 
-def calcularTesteAnova(tabela, anos_list, cod_list):
+def calcular_teste_ANOVA(tabela, anos_list, cod_list):
 
     tabela = mapeamento_valores(tabela)
 
@@ -54,22 +54,22 @@ def calcularTesteAnova(tabela, anos_list, cod_list):
     
     plt.figure(figsize=(12, 6))
     sns.boxplot(data=tabela, x="Conceito Enade (Contínuo)", y="CO_CATEGAD")
-    plt.savefig(f"figuras/{anos_list}{cod_list}_CO_CATEGAD.png", format='png')
+    plt.savefig(f"figuras/{anos_list}{cod_list}CO_CATEGAD.png", format='png')
     plt.close()
 
     plt.figure(figsize=(12, 6))
     sns.boxplot(data=tabela, x="Conceito Enade (Contínuo)", y="CO_ORGACAD")
-    plt.savefig(f"figuras/{anos_list}{cod_list}_CO_ORGACAD.png", format='png')
+    plt.savefig(f"figuras/{anos_list}{cod_list}CO_ORGACAD.png", format='png')
     plt.close()
 
     plt.figure(figsize=(12, 6))
     sns.boxplot(data=tabela, x="Conceito Enade (Contínuo)", y="CO_MODALIDADE")
-    plt.savefig(f"figuras/{anos_list}{cod_list}_CO_MODALIDADE.png", format='png')
+    plt.savefig(f"figuras/{anos_list}{cod_list}CO_MODALIDADE.png", format='png')
     plt.close()
 
     plt.figure(figsize=(12, 6))
     sns.boxplot(data=tabela, x="Conceito Enade (Contínuo)", y="CO_REGIAO_CURSO")
-    plt.savefig(f"figuras/{anos_list}{cod_list}_CO_REGIAO_CURSO.png", format='png')
+    plt.savefig(f"figuras/{anos_list}{cod_list}CO_REGIAO_CURSO.png", format='png')
     plt.close()
 
     return tabela_informacoes_IES

@@ -46,7 +46,7 @@ Os modulos são onde as tabelas são exportadas ou importadas e passadas para a 
 
 As operações são onde as tabelas são modificadas para realizar operações estatísticas ou gerar conteúdo importante para análise
 
-Depois de realizadas as operações serão geradas tabelas no diretório tabelasCriadas e gráficos no diretório figuras
+Depois de realizadas as operações serão geradas tabelas no diretório tabelas_criadas e gráficos no diretório figuras
 
 
 

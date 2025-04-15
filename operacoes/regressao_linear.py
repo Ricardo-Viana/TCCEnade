@@ -7,21 +7,21 @@ from sklearn.linear_model import LinearRegression
 from sklearn.metrics import mean_squared_error, r2_score
 from sklearn.feature_selection import RFE
 
-def calcularRegressaoLinear(tabela, anos_list, cod_list):
+def calcular_regressao_linear(tabela, anos_list, cod_list):
 
     preditores = [col for col in tabela.columns if col.startswith('QE_I')]
     resultado = 'Conceito Enade (Contínuo)'
 
     tabela = tabela.dropna(subset=[resultado]) # Tirar conceito enade que tinham valores nulos
-    
+
     for questao in preditores:
         tabela = tabela.dropna(subset=[questao]) # Tirar as questões que tinham valores nulos
-    
-    RMSE, r2 = regressaoLinearSkLearn(tabela, preditores, resultado, anos_list, cod_list)
+
+    RMSE, r2 = regressao_linear_sklearn(tabela, preditores, resultado, anos_list, cod_list)
     print(f'Root Mean Square Error (RMSE): {RMSE:.0f}')
     print(f'Coeficiente de determinação (r2): {r2:.4f}')
 
-    resultado = regressaoLinearStModel(tabela, preditores, resultado)
+    resultado = regressao_linear_stmodel(tabela, preditores, resultado)
     
     tabela_resultado = resultado.summary2().tables[1]
     df_resultado = tabela_resultado.reset_index()
@@ -29,7 +29,7 @@ def calcularRegressaoLinear(tabela, anos_list, cod_list):
     return df_resultado
 
 
-def regressaoLinearSkLearn(tabela, preditores, resultado, anos_list, cod_list):
+def regressao_linear_sklearn(tabela, preditores, resultado, anos_list, cod_list):
     questoes_lm = LinearRegression()
     questoes_lm.fit(tabela[preditores], tabela[resultado])
 
@@ -50,13 +50,13 @@ def regressaoLinearSkLearn(tabela, preditores, resultado, anos_list, cod_list):
     plt.ylim([0, 0.4])
     plt.xlim([0, 41])
     plt.title("Regressão Linear")
-    plt.savefig(f"figuras/{anos_list}{cod_list}_regressao_rfe.png", format='png')
+    plt.savefig(f"figuras/{anos_list}{cod_list}regressao_rfe.png", format='png')
     plt.close()
 
     return RMSE, r2
 
 
-def regressaoLinearStModel(tabela, preditores, resultado):
+def regressao_linear_stmodel(tabela, preditores, resultado):
     modelo = sm.OLS(tabela[resultado], tabela[preditores].assign(const=1))
     resultado = modelo.fit()
 

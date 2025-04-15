@@ -3,9 +3,9 @@ import scipy.stats as st
 import numpy as np
 import matplotlib.pyplot as plt
 
-from operacoes.mapeamentosIES import mapeamento_valores
+from operacoes.mapeamentos_IES import mapeamento_valores
 
-def intervaloConfiancaMediaEnadeIES(tabela, anos_list, cod_list):
+def intervalo_confianca_media_enade_IES(tabela, anos_list, cod_list):
     tabela = mapeamento_valores(tabela)
 
     tabela = tabela.dropna(subset=['Conceito Enade (Contínuo)'])
@@ -13,11 +13,11 @@ def intervaloConfiancaMediaEnadeIES(tabela, anos_list, cod_list):
     colunas_ies = ["CO_CATEGAD","CO_ORGACAD","CO_MODALIDADE","CO_REGIAO_CURSO"]
 
     for ies in colunas_ies:
-        intervaloConfiancaPorIES(tabela, ies, anos_list, cod_list)
+        gerar_intervalo_confianca_por_IES(tabela, ies, anos_list, cod_list)
 
     return
 
-def intervaloConfiancaPorIES(tabela, ies, anos_list, cod_list):
+def gerar_intervalo_confianca_por_IES(tabela, ies, anos_list, cod_list):
     lista_ies_valores = tabela[ies].unique()
     intervalo_confianca = pd.DataFrame(columns=[ies, 'Média', 'Limite Inferior', 'Limite Superior', 'Erro Padrão'])
 
@@ -43,7 +43,7 @@ def intervaloConfiancaPorIES(tabela, ies, anos_list, cod_list):
         medias.append(media)
         erros.append(erro)
 
-    plt.figure(figsize=(12,6))
+    plt.figure(figsize=(12,4))
     y = np.arange(len(categorias_labels))
     plt.errorbar(medias, y, xerr=erros, fmt='none', ecolor='black', capsize=7, elinewidth=2, linewidth=5)
 
@@ -58,6 +58,6 @@ def intervaloConfiancaPorIES(tabela, ies, anos_list, cod_list):
     plt.close()
 
     intervalo_confianca.applymap(lambda x: str(x).replace('.', ',') if isinstance(x, (float, int)) else x)
-    intervalo_confianca.to_csv(f"tabelasCriadas/{anos_list}{cod_list}_intervalo_Confianca_Enade_{ies}.csv", index=False)
+    intervalo_confianca.to_csv(f"tabelas_criadas/{anos_list}{cod_list}intervalo_Confianca_Enade_{ies}.csv", index=False)
 
     return

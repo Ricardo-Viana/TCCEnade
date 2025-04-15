@@ -49,11 +49,11 @@ def main():
         elif ano in GRUPO_ENADE_2:
             relacao_ano_grupo[ano] = "grupo_2"        
         elif ano in GRUPO_ENADE_3:
-            relacao_ano_grupo[ano] = "grupo_3"        
+            relacao_ano_grupo[ano] = "grupo_3"
         else:
             raise Exception(f"Ano {ano} não foi avaliado no ENADE")
         
-    dir_path_tabelas = f'./tabelasCriadas'
+    dir_path_tabelas = f'./tabelas_criadas'
     dir_path_figuras = f'./figuras'
     
     if not os.path.exists(dir_path_tabelas):
