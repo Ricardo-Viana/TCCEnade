@@ -1,6 +1,6 @@
-# Análise ENADE
+# Análise dos Microdados do Enade
 
-Esse projeto tem como objetivo automatizar cálculo estatísticos sobre o ENADE com o intuito de embasar possíveis pesquisas
+Esse projeto tem como objetivo automatizar cálculos estatísticos sobre o ENADE com o intuito de embasar possíveis pesquisas.
 
 ## Índice
 - [Instalação](#instalação)
@@ -34,19 +34,19 @@ python main.py [ARGUMENTOS]
 
 -tp --tipoQuestao # Tipo de questão dos questionários que vão ser gerados os relatórios. Argumento Obrigatório 
 
--c --cursosEspecificos # Filtro de análise de correlação usando código geral dos cursos, usando como base o Cine Rótulo. Argumento Opcional
+-c --cursosEspecificos # Filtro do dataset usando código geral dos cursos, usando como base o Cine Rótulo. Argumento Opcional
 ```
 
 ## Arquivos
-Para realizar os cálculos vão ser baixados arquivos referente aos microdados do(s) ano(s) escolhido(s) para análise e também ao Conceito Enade para ser usado nos cálculos de correlação
+Para realizar os cálculos vão ser baixados arquivos referente aos microdados do(s) ano(s) escolhido(s) e também do Conceito Enade para ser usado nos cálculos estatísticos.
 
 O projeto é divido em dois diretórios, os modulos e as operações. 
 
 Os modulos são onde as tabelas são exportadas ou importadas e passadas para a sua devida operação. 
 
-As operações são onde as tabelas são modificadas para realizar operações estatísticas ou gerar conteúdo importante para análise
+As operações são onde as tabelas são modificadas para realizar operações estatísticas ou gerar conteúdo importante para análise, como gráficos por exemplo.
 
-Depois de realizadas as operações serão geradas tabelas no diretório tabelas_criadas e gráficos no diretório figuras
+Depois de realizadas as operações serão geradas tabelas no diretório "tabelas_criadas" e gráficos no diretório "figuras".
 
 
 
@@ -57,7 +57,7 @@ Depois de realizadas as operações serão geradas tabelas no diretório tabelas
 
 ## Autores
 
-Projeto foi desenvolvido como parte de um TCC da UFPB - Universidade Federal da Paraíba CAMPUS IV, curso de Sistemas de Informação
+Projeto foi desenvolvido como parte de um TCC da UFPB - Universidade Federal da Paraíba (CAMPUS IV), do curso de Sistemas de Informação.
 
 - Aluno: [Ricardo Ullysses Macedo Viana Filho](#https://github.com/Ricardo-Viana)
 - Orientador: [Marcus Williams Aquino de Carvalho](#https://github.com/marcuswac)
