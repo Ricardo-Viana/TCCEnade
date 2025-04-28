@@ -32,9 +32,13 @@ python main.py [ARGUMENTOS]
 
 -v --valoresNa # Valor ou lista de valores que serão ignorados na análise. Argumento Opcional
 
--tp --tipoQuestao # Tipo de questão dos questionários que vão ser gerados os relatórios. Argumento Obrigatório 
+-tp --tipoQuestao # Tipo de questão dos questionários que vão ser gerados os relatórios. Argumento Obrigatório
 
--c --cursosEspecificos # Filtro do dataset usando código geral dos cursos, usando como base o Cine Rótulo. Argumento Opcional
+-c --cursosEspecificos # Filtro do dataset usando código geral dos cursos, usando como base o Cine Rótulo (cine_rotulo_enade). Argumento Opcional
+
+#Exemplo de utilização com os argumentos
+python main.py -a 2021 -v 7 8 -tp "processo formativo" -c 6 # Análise do ano de 2021, questões com valores 7 e 8 serão ignorados, o tipo da questão serão as de processo formativo e apenas os cursos com código geral 6 serão analisados.
+
 ```
 
 ## Arquivos
